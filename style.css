@@ -1,0 +1,78 @@
+@charset "UTF-8";
+/*
+Theme Name: Illustrator PC
+Theme URL: http://illustartor.pcazorla.com
+Description: Theme for pcazorla.com
+Author: Pablo Cazorla
+Version: 0.1
+Tags: pablo, cazorla, ilustración, webdesign
+*/
+
+/* RESET ****************************************************************/
+/* http://meyerweb.com/eric/tools/css/reset/ * v2.0 | 20110126 * License: none (public domain) */
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul,menu{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}table{border-collapse:collapse;border-spacing:0} *{-webkit-appearance: none;}
+/* Clearfix */
+.clearfix:before,.clearfix:after{ content: "";display: table} .clearfix:after{ clear: both} .clearfix{ zoom: 1}
+
+
+/* BASIC ***************************************************/
+body,input,textarea{font: 14px/1.4em 'Open Sans', sans-serif;}
+
+body{background:#000;color:#939393;padding-left:30px;}
+
+
+h1{font-size:30px;color:#FFF;line-height:46px;}
+
+
+
+
+
+
+
+
+a{color:#3f90c4;text-decoration:none;}
+a:hover{text-decoration:underline;}
+
+
+
+/* Header **********************************************************/
+
+header{position:fixed;top:0;bottom:0;left:-195px;width:178px;padding:20px 32px 20px 15px;background:#000;}
+
+header .logo{display:block;height:100px;background:#333;text-indent:-99999px;}
+
+header menu{
+	text-align: right;
+	font-size:24px;
+	line-height:48px;
+	padding:80px 0 0;
+}
+header menu a{
+	color:#868686;
+	display:block;
+}
+
+/* Work ******************************************************************/
+.work .description{width:294px;position:fixed;top:0;bottom:0;left:30px;text-align: right;padding:145px 28px 20px;background:#222;}
+.work .post-categories{font-size:12px;margin-bottom:30px;}
+.work .image{margin-left:350px;}
+.work .image img{width:100% !important;height: auto !important; max-width:1100px;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
