@@ -11,18 +11,19 @@ var app = {
 	gallery : function(){
 		
 		var $g = $('#gallery'),
+			$content = $g.parent('.content'),
 			$figures = $g.find('figure'),
 			length = $figures.length,
 			figureMarginRight = parseInt($figures.css('marginRight')),
-			galleryPadTop = parseInt($g.css('paddingTop')),
-			galleryPadLeft = parseInt($g.css('paddingLeft')),
-			
 			
 			setPositions = function(){		
-				var figureWidth = $figures.outerWidth(true),
-					columnXrow = Math.floor(($g.width()+figureMarginRight)/figureWidth),
+				var galleryPadTop = parseInt($g.css('paddingTop')),
+					galleryPadLeft = parseInt($g.css('paddingLeft')),
+					
+					figureWidth = $figures.width() + figureMarginRight,
+					columnXrow = Math.floor(($content.width())/figureWidth),
 					column = 0,
-					columnHeights = [];
+					columnHeights = [],
 					maxHeight = 0;
 				
 				for(var i=0;i<columnXrow;i++){
@@ -43,11 +44,13 @@ var app = {
 				}
 				$g.css({
 					'position' : 'relative',
-					'height' : maxHeight - galleryPadTop + 'px'
+					'height' : maxHeight - galleryPadTop + 'px',
+					'width' : figureWidth * columnXrow - figureMarginRight + 'px'
 				});
-				$figures.css('position','absolute');
+				
 			}
 		setPositions();
+		$figures.css({'position':'absolute','marginRight':'0'});
 		this.$window.resize(function(){
 			setPositions();
 		});
