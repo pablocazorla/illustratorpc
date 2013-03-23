@@ -4,9 +4,52 @@ var app = {
 	init : function(){
 		this.$window = $(window);
 		this.gallery();
+		this.fixSummary();
 	},
 	layout : function(){
 		
+	},
+	fixSummary : function(){
+		var self = this,
+			$summary = $('.summary'),
+			winPosition = self.$window.scrollTop(),
+			prevWinPosition = winPosition,
+			summaryTop = $summary.offset().top,
+			height = parseInt(summaryTop + $summary.outerHeight()+20),
+			fixed = false,
+			setPosition = function(){
+				var dif = parseInt(height - winPosition);				
+					if(dif < 0){
+						if(!fixed){
+							$summary.fadeOut(400,function(){
+								$summary.addClass('fixed').fadeIn(400,function(){
+									fixed = true;
+								});
+							});
+						}						
+					}else{
+						if(fixed){
+							$summary.fadeOut(400,function(){
+								$summary.removeClass('fixed').fadeIn(400,function(){
+									fixed = false;
+								});
+							});
+						}				
+					}
+			};
+		setInterval(function(){
+			if(winPosition != prevWinPosition){
+				prevWinPosition = winPosition;
+				setPosition();
+			}			
+		},1500);		
+		this.$window.scroll(function(){
+			winPosition = self.$window.scrollTop();
+			if((winPosition-summaryTop) < 0 && fixed){
+				fixed = false;
+				$summary.removeClass('fixed').show();
+			}
+		});
 	},
 	gallery : function(){
 		

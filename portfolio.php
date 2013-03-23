@@ -5,7 +5,7 @@ Template Name: Portfolio
 ?>
 
 <?php get_header(); ?>
-<article class="portfolio">
+<article id="portfolio" class="clearfix">
 	<section class="summary">
 		<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 		<?php the_content(); ?>

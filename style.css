@@ -22,17 +22,16 @@ body,input,textarea{
 }
 body{
 	min-width:320px;
-	padding-left:140px;
-	background:url('img/bg.png');
-	color:#939393;	
+	padding:0 10px;
+	background: #f4f4f4;
+	color:#666;	
 }
 h1{	
-	color:#FFF;
-	font-size:30px;
-	line-height:46px;
+	font-size:34px;
+	line-height:52px;
 }
-h2,h3,h4,h5,h6{
-	color:#CCC;	
+h1,h2,h3,h4,h5,h6{
+	color:#444;	
 }
 h3{	
 	font-size:16px;
@@ -55,69 +54,42 @@ a:hover{
 	text-decoration:underline;
 }
 
-/* HEADER **************************************************************************/
-header{
-	position:fixed;
-	z-index:100;
-	top:0;bottom:0;left:0;
-	width:140px;
-	background:#0a0a0a;
-}
-header .logo{
-	display:block;
-	height:140px;
-	background:#333;
-	text-indent:-99999px;
-}
-header menu{
+/* Common *****************************************************/
 
-}
-header menu a{
-
+article{
+	padding:20px;
+	max-width: 1500px;
+	margin:100px auto;
+	background:rgba(255,255,255,.5);
+	box-shadow: 0 0 0 10px rgba(0,0,0,.03);
 }
 
-/* COMMON *************************************************************************/
 
-.content{
-	min-width:300px;
-	padding:0 0 1px;
-	margin-left:370px;		
-}
 .summary{
-	position:fixed;
-	z-index:99;
-	top:0;bottom:0;left:140px;
-	width:294px;
-	padding:145px 38px 20px;
-	background:#222;
-	text-align: right;
+	max-width: 370px;
+	padding:0 30px 0 0;
+	text-align:right;
+	float:left;
 }
-
-/* Image shadow */
-#gallery figure,
-.work .content img{
-	-webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-	-moz-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+.summary p{font-size:16px;line-height: 24px;color: #888;}
+.summary.fixed{position:fixed;top:10px}
+.content{
+	max-width: 1100px;
+	margin-left:400px;
 }
-
 /* Caption image */
 #gallery figure figcaption,
-.work .content .wp-caption .wp-caption-text{
+#work .content .wp-caption .wp-caption-text{
 	border-top: solid 1px #2a2a2a;
 	background:rgba(20,20,20,.8);
 }
-
-/* PORTFOLIO **********************************************************************/
-.portfolio .content{
-	margin-right:0;	
-}
+/* Portfolio *****************************************************/
+#portfolio h1{margin-bottom:20px;}
 /* Gallery */
 #gallery{
 	min-width:301px;
-	min-height:100%;	
-	background:#222;
-	padding:40px 20px 40px 0;	
+	min-height:100%;
+	
 	
 	-webkit-transition: width .3s ease,top .3s ease;
 	-moz-transition: width .5s ease,top .5s ease;
@@ -193,51 +165,45 @@ header menu a{
 #gallery .categories{
 	font-size:12px;
 }
+/* Work *****************************************************/
 
-/* WORK ******************************************************************/
-.work .categories{
+#work .categories{
 	margin-bottom:30px;
-	font-size:12px;	
+	font-size:14px;	
 }
 
-
-.work .content{
-	max-width:1100px;
-	background:#222;
-	padding-right:20px;
-}
-.work .content h2{
+#work .content h2{
 	font-size:20px;
 	line-height:30px;
 	padding:15px 0 25px;
-	border-top: 1px solid #323232;
+	border-top: 1px solid #DDD;
 }
-.work .content ul,.work .content ol{
+#work .content ul,#work .content ol{
 	padding-left:30px;
 	margin-bottom:30px;
 }
-.work .content ul{
+#work .content ul{
 	list-style: disc outside none;
 }
-.work .content ol{
+#work .content ol{
 	list-style: decimal outside none;
 }
-.work .content li{
+#work .content li{
 	padding-bottom:10px;
 }
 
-.work .content img{
+#work .content img{
 	width:100% !important;
 	height: auto !important;
 	display:block;
 }
-.work .content .wp-caption{
+#work .content .wp-caption{
 	position:relative;
 	width:auto !important;
 	max-width:1100px;
 	margin-bottom:30px;
 }
-.work .content .wp-caption .wp-caption-text{
+#work .content .wp-caption .wp-caption-text{
 	position:absolute;
 	left:0;right:0;bottom:0;
 	margin-bottom:0;
@@ -245,83 +211,6 @@ header menu a{
 	font-size: 12px;
 	font-style: italic;
 }
-
-
-/* *MEDIA QUERIES */
-
-/* All devices */
-@media only screen {html,body{overflow-x: hidden;}}
-
-/* Tablet Landscape */
-@media only screen and (max-width: 1100px) {
-	body {
-	    padding-left: 100px;
-	}
-	header {
-	    width: 100px;
-	}
-	.summary{
-		left: 100px;
-		width:180px;
-		padding: 60px 25px 20px 35px;
-	}
-	.content {
-		margin-left: 240px;
-	}
-}
-
-/* Tablet Portrait */
-@media only screen and (max-width: 850px) {
-	body {
-	    padding-left: 80px;
-	}
-	header {
-	    width: 80px;
-	}
-	.summary{
-		position:static;
-		width: auto;
-		max-width: 620px;
-		padding: 20px 20px 1px;
-		text-align:left;
-	}
-	.content{
-		margin-left:0;
-	}
-	#gallery{
-		padding:20px;
-	}
-	.work .content {
-	    padding-left: 20px;
-	}
-}
-
-/* Smartphone Landscape */
-@media only screen and (max-width: 740px) {
-	body {
-		background:#222;
-		padding-left:0;
-	}
-	header {
-	    position:static;
-	    width: auto;
-	}
-	#gallery{
-		
-		padding:0;
-		margin:0 auto;
-	}
-}
-
-/* Smartphone Portrait */
-@media only screen and (max-width: 400px) {
-	
-}
-
-
-
-
-
 
 
 
