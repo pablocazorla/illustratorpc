@@ -18,11 +18,11 @@
 	<script src="<?php bloginfo('template_url'); ?>/js/libs/html5-3.4-respond-1.1.0.min.js"></script>
 	<![endif]-->
 	
-			
+	<script type="text/javascript">pageid = 'home';</script>
 	<?php wp_head(); ?>	
 </head>
 <body>
-<header>
+<header class="main">
 	<a href="" class="logo"><?php bloginfo( 'name' ); ?><span><?php $site_description = get_bloginfo( 'description', 'display' );echo $site_description;?></span></a>
 	<menu>
 		<?php  wp_nav_menu();?>

@@ -5,16 +5,17 @@ Template Name: Portfolio
 ?>
 
 <?php get_header(); ?>
-<article id="portfolio" class="clearfix">
+<script type="text/javascript">pageid = 'portfolio';</script>
+<article id="portfolio" class="main clearfix">	
 	<section class="summary">
 		<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 		<?php the_content(); ?>
 		<?php endwhile; endif; ?>
 	</section>
 	<section class="content">
-		<div id="gallery">
+		<div id="gallery" class="clearfix">
 			<?php query_posts('posts_per_page=60'); while ( have_posts() ) : the_post(); ?>	    
-			<figure>
+			<figure>			
 				<a href="<?php the_permalink(); ?>" class="explain-work" rel="<?php the_ID();?>"></a>				
 					<?php if(has_post_thumbnail()): the_post_thumbnail('thumbnail'); endif; ?>										
 				<figcaption>
