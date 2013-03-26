@@ -3,34 +3,39 @@ var app = {
 	
 	init : function(){
 		this.$window = $(window);
-		this.gallery();
-		this.fixSummary();
+		switch(pageid){
+			case 'work':
+				this.fixDescription();
+				this.validateForm();
+				break;
+			default :
+				//
+				break;			
+		}
+		this.menuPhone();
 	},
-	layout : function(){
-		
-	},
-	fixSummary : function(){
+	fixDescription : function(){
 		var self = this,
-			$summary = $('.summary'),
+			$description = $('#work .description'),
 			winPosition = self.$window.scrollTop(),
 			prevWinPosition = winPosition,
-			summaryTop = $summary.offset().top,
-			height = parseInt(summaryTop + $summary.outerHeight()+20),
+			summaryTop = $description.offset().top,
+			height = parseInt(summaryTop + $description.outerHeight()+20),
 			fixed = false,
 			setPosition = function(){
 				var dif = parseInt(height - winPosition);				
 					if(dif < 0){
 						if(!fixed){
-							$summary.fadeOut(400,function(){
-								$summary.addClass('fixed').fadeIn(400,function(){
+							$description.fadeOut(400,function(){
+								$description.addClass('fixed').fadeIn(400,function(){
 									fixed = true;
 								});
 							});
 						}						
 					}else{
 						if(fixed){
-							$summary.fadeOut(400,function(){
-								$summary.removeClass('fixed').fadeIn(400,function(){
+							$description.fadeOut(400,function(){
+								$description.removeClass('fixed').fadeIn(400,function(){
 									fixed = false;
 								});
 							});
@@ -47,56 +52,88 @@ var app = {
 			winPosition = self.$window.scrollTop();
 			if((winPosition-summaryTop) < 0 && fixed){
 				fixed = false;
-				$summary.removeClass('fixed').show();
+				$description.removeClass('fixed').show();
 			}
+		});	
+	},
+	validateForm : function(){
+		var $f = $('fieldset.validate'),
+			valid = true,
+			validate = function(){
+				valid = true;
+				$f.each(function(){
+					var $this = $(this),
+						$input = $this.find('input,textarea'),
+						min = parseInt($this.attr('min')) || 0,
+						val = $input.val(),
+						emailRegEx = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
+						isEmail = false;
+					if($this.hasClass('email')){
+						isEmail = true;
+					}	
+					
+					if(val.length < min){
+						valid = false;
+						$this.addClass('error');
+						$input.focus();
+					}else{					
+						$this.removeClass('error');
+					}
+					if(isEmail){
+						if(val.search(emailRegEx) == -1){
+							valid = false;
+							$this.addClass('error');
+							$input.focus();
+						}else{
+							$this.removeClass('error');
+						}				
+					}			
+				});
+			},
+			clearFiels = function(){				
+				$f.removeClass('error').find('input,textarea').val('');
+				$f.eq(0).find('input').focus();				
+			};
+		
+		$('#submit').click(function(e){
+			validate();
+			if(!valid){e.preventDefault();} 
+		});
+		$('#clearFields').click(function(e){
+			e.preventDefault();
+			clearFiels();
 		});
 	},
-	gallery : function(){
-		
-		var $g = $('#gallery'),
-			$content = $g.parent('.content'),
-			$figures = $g.find('figure'),
-			length = $figures.length,
-			figureMarginRight = parseInt($figures.css('marginRight')),
-			
-			setPositions = function(){		
-				var galleryPadTop = parseInt($g.css('paddingTop')),
-					galleryPadLeft = parseInt($g.css('paddingLeft')),
-					
-					figureWidth = $figures.width() + figureMarginRight,
-					columnXrow = Math.floor(($content.width())/figureWidth),
-					column = 0,
-					columnHeights = [],
-					maxHeight = 0;
-				
-				for(var i=0;i<columnXrow;i++){
-					columnHeights.push(galleryPadTop);
-				}				
-				for(var i=0;i<length;i++){					
-					$figures.eq(i).css({
-						'left' : column * figureWidth + galleryPadLeft + 'px',
-						'top' : columnHeights[column] + 'px'
-					});					
-					columnHeights[column] = columnHeights[column] + $figures.eq(i).outerHeight(true);
-					
-					if(columnHeights[column]>maxHeight) maxHeight = columnHeights[column];
-					
-					++column;
-					if(column >= columnXrow) column = 0;
-					
+	menuPhone : function(){
+		var self = this,
+			$menu = $('#menu'),
+			open = false,
+			isPhone = function(){
+				return self.$window.width() <= 720 ? true : false;
+			},
+			touchOutMenu = function(){	
+				if(open){
+					if(isPhone()){
+						$menu.slideUp(200,function(){
+							$menu.css('display','');
+						});
+						open = false;
+					}
 				}
-				$g.css({
-					'position' : 'relative',
-					'height' : maxHeight - galleryPadTop + 'px',
-					'width' : figureWidth * columnXrow - figureMarginRight + 'px'
-				});
-				
-			}
-		setPositions();
-		$figures.css({'position':'absolute','marginRight':'0'});
-		this.$window.resize(function(){
-			setPositions();
-		});
+			};
+		
+		$('#menu-btn').click(function(event){
+			event.preventDefault();			
+			$menu.slideDown(200);
+			open = true;			
+		});	
+		$('document,body').mouseup(function(){
+			touchOutMenu();
+		});	
+		//For IOS devices
+		if(typeof document.body.addEventListener != undefined){
+			document.body.addEventListener("touchend", touchOutMenu,false);
+		}
 	}
 };
 $('document').ready(app.init());

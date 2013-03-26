@@ -9,7 +9,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 	
 	<!-- CSS -->
-	<link href='//fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>		
+	<!--link href='//fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'-->
+	<link href="<?php bloginfo('template_url'); ?>/fonts.css" rel="stylesheet" type="text/css" />	
 	<link href="<?php bloginfo('template_url'); ?>/style.css" rel="stylesheet" type="text/css" />
 	
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
@@ -24,7 +25,8 @@
 <body>
 <header class="main">
 	<a href="" class="logo"><?php bloginfo( 'name' ); ?><span><?php $site_description = get_bloginfo( 'description', 'display' );echo $site_description;?></span></a>
-	<menu>
+	<span id="menu-btn"></span>
+	<menu id="menu">
 		<?php  wp_nav_menu();?>
 	</menu>
 </header>
