@@ -23,7 +23,8 @@ var app = {
 			height = parseInt(summaryTop + $description.outerHeight()+20),
 			fixed = false,
 			setPosition = function(){
-				var dif = parseInt(height - winPosition);				
+				var dif = parseInt(height - winPosition);
+				if(self.$window.width()>720){
 					if(dif < 0){
 						if(!fixed){
 							$description.fadeOut(400,function(){
@@ -41,6 +42,7 @@ var app = {
 							});
 						}				
 					}
+				}					
 			};
 		setInterval(function(){
 			if(winPosition != prevWinPosition){
