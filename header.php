@@ -22,13 +22,16 @@
 	<script type="text/javascript">pageid = 'home';</script>
 	<?php wp_head(); ?>	
 </head>
+
+<?php if(!is_home() && !is_front_page()){ ?>
 <body>
 <header class="main">
-	<a href="" class="logo"><?php bloginfo( 'name' ); ?><span><?php $site_description = get_bloginfo( 'description', 'display' );echo $site_description;?></span></a>
+	<a href="<?php bloginfo( 'url' ); ?>" class="logo"><?php bloginfo( 'name' ); ?><span><?php $site_description = get_bloginfo( 'description', 'display' );echo $site_description;?></span></a>
 	<span id="menu-btn"></span>
 	<menu id="menu">
 		<?php  wp_nav_menu();?>
 	</menu>
 </header>
-
-
+<?php }else{ ?>
+<body class="home">
+<?php }; ?>

@@ -125,9 +125,11 @@ var app = {
 			};
 		
 		$('#menu-btn').click(function(event){
-			event.preventDefault();			
-			$menu.slideDown(200);
-			open = true;			
+			event.preventDefault();
+			if(!open){
+				$menu.slideDown(200);
+				open = true;
+			}						
 		});	
 		$('document,body').mouseup(function(){
 			touchOutMenu();
