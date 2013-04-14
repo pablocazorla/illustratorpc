@@ -71,7 +71,7 @@ a:hover{
 header.main{
 	position:fixed;left:0;right:0;top:0;z-index:10000;
 	background: #FFF;height:60px;
-	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+	border-bottom:solid 1px #DDD;
 }
 
 
@@ -90,7 +90,7 @@ header.main menu li:hover > a{color:#FFF;background-color: #333;text-decoration:
 
 
 
-header.main menu li ul{display:none;position:absolute;background: #FFF;width:200px;top:100%;right:0;text-align:right;box-shadow: 0 3px 4px rgba(0, 0, 0, 0.2);}
+header.main menu li ul{display:none;position:absolute;background: #FFF;width:200px;top:100%;right:0;text-align:right}
 header.main menu li ul li{float:none;border-top:solid 1px #EEE;}
 header.main menu li:hover > ul{display:block;}
 
@@ -104,7 +104,7 @@ header.main menu li:hover > ul{display:block;}
 
 
 header.main .logo{
-	float:left;width:260px;height:60px;background: url('img/logo.png') 6px 4px no-repeat;display:block;text-indent:-99999px;
+	float:left;width:260px;height:60px;background: url('img/logo.png') 8px 8px no-repeat;display:block;text-indent:-99999px;
 }
 
 /* Article Main *******************************************************/
@@ -114,11 +114,11 @@ article.main{
 
 /* Summary *******************************************************/
 .summary{
-	background: #DDD;padding:50px;
+	background: #DDD url('img/summary-bg.jpg') 0 0 no-repeat fixed;padding:50px;
 }
 /* Breadcrumb *******************************************************/
 .breadcrumb{
-	background: #DDD;padding:50px;
+	background: #DDD url('img/summary-bg.jpg') 0 0 no-repeat fixed;padding:50px;
 }
 
 /* Gallery *****************************************************/
@@ -434,7 +434,7 @@ footer.main{
 	header.main menu li{float:none;}
 	header.main menu li a{color:#EEE;background-color: #333;padding:0 60px;border-top:solid 1px #444;border-bottom:solid 1px #222}
 	header.main menu li a:hover{color:#FFF;background-color: #333;text-decoration:none}	
-	header.main menu li ul{display:block;position:static;width:auto;box-shadow:none}	
+	header.main menu li ul{display:block;position:static;width:auto}	
 	header.main menu li ul:after{position:absolute;top:24px;right:36px;width:0;height:0;content:'';border-left:solid 6px transparent;border-right:solid 6px transparent;border-top:solid 8px #EEE}	
 	header.main menu li ul li{}
 	header.main menu li ul li a{color:#777;background-color: #FFF;border:none;position:relative}
