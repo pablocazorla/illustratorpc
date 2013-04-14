@@ -9,8 +9,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 	
 	<!-- CSS -->
-	<!--link href='//fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'-->
-	<link href="<?php bloginfo('template_url'); ?>/fonts.css" rel="stylesheet" type="text/css" />	
+	<!--link href='//fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
+	<link href="<?php bloginfo('template_url'); ?>/fonts.css" rel="stylesheet" type="text/css" />-->
+	<link href='http://fonts.googleapis.com/css?family=Merriweather:400,700' rel='stylesheet' type='text/css'>
 	<link href="<?php bloginfo('template_url'); ?>/style.css" rel="stylesheet" type="text/css" />
 	
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
@@ -24,14 +25,17 @@
 </head>
 
 <?php if(!is_home() && !is_front_page()){ ?>
+
+<?php }else{ ?>
+<?php }; ?>
 <body>
 <header class="main">
-	<a href="<?php bloginfo( 'url' ); ?>" class="logo"><?php bloginfo( 'name' ); ?><span><?php $site_description = get_bloginfo( 'description', 'display' );echo $site_description;?></span></a>
-	<span id="menu-btn"></span>
-	<menu id="menu">
+	<div class="wrap clearfix">
+		<a href="<?php bloginfo( 'url' ); ?>" class="logo"><?php bloginfo( 'name' ); ?><span><?php $site_description = get_bloginfo( 'description', 'display' );echo $site_description;?></span></a>
+		<span id="menu-btn"></span>
+		<a class="bread" href="<?php bloginfo('url'); ?>/portfolio">back to Portfolio</a>
+	</div>
+	<menu class="main">
 		<?php  wp_nav_menu();?>
-	</menu>
+	</menu>	
 </header>
-<?php }else{ ?>
-<body class="home">
-<?php }; ?>
