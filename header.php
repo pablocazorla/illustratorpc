@@ -32,10 +32,17 @@
 <header class="main">
 	<div class="wrap clearfix">
 		<a href="<?php bloginfo( 'url' ); ?>" class="logo"><?php bloginfo( 'name' ); ?><span><?php $site_description = get_bloginfo( 'description', 'display' );echo $site_description;?></span></a>
-		<span id="menu-btn"></span>
-		<a class="bread" href="<?php bloginfo('url'); ?>/portfolio">back to Portfolio</a>
+		<ul id="skills">
+			<li class="sk1">Illustrator</li>
+			<li class="sk2">Concept artist</li>
+			<li class="sk3">Painter</li>
+		</ul>
+		<span id="menu-btn"></span>		
 	</div>
-	<menu class="main">
-		<?php  wp_nav_menu();?>
+	<menu class="main" id="menu-main">
+		<div class="wrap clearfix">
+			<span class="arrow"><span></span></span>
+			<?php  wp_nav_menu();?>
+		</div>
 	</menu>	
 </header>

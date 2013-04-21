@@ -33,22 +33,22 @@ if('comments.php' == basename($_SERVER['SCRIPT_FILENAME'])){
 			<?php }else{ //Si NO esta logueado ?>
 				
 				<fieldset id="authorField" class="validate" min="3">
-					<label for="author"><?php _e('Name','pcazorla'); ?><?php if ($req) echo '<span class="req">*</span>'; ?>:</label>					
-					<input type="text" name="author" id="author" value="<?php echo $comment_author; ?>" tabindex="1" placeholder="<?php _e('Write your name','pcazorla'); ?>"/>
 					<div class="errorMessage" style="display:none;"><?php _e('Please, complete your name','pcazorla'); ?></div>
+					<label for="author"><?php _e('Name','pcazorla'); ?><?php if ($req) echo '<span class="req">*</span>'; ?>:</label>					
+					<input type="text" name="author" id="author" value="<?php echo $comment_author; ?>" tabindex="1" placeholder="<?php _e('Write your name','pcazorla'); ?>"/>					
 				</fieldset>
 				
 				<fieldset id="emailField" class="validate email" min="3">
-					<label for="email">E-mail<?php if ($req) echo '<span class="req">*</span>'; ?>:</label>					
-					<input type="email"" name="email" id="email" value="<?php echo $comment_author_email; ?>" tabindex="2" placeholder="<?php _e('your_email@mail.com','pcazorla'); ?>"/>
 					<div class="errorMessage" style="display:none;"><?php _e('Write a right e-mail','pcazorla'); ?></div>
+					<label for="email">E-mail<?php if ($req) echo '<span class="req">*</span>'; ?>:</label>					
+					<input type="email"" name="email" id="email" value="<?php echo $comment_author_email; ?>" tabindex="2" placeholder="<?php _e('your_email@mail.com','pcazorla'); ?>"/>					
 			<?php } ?>					
 				</fieldset>
 				
 				<fieldset id="commentField" class="validate" min="3">
+					<div class="errorMessage" style="display:none;"><?php _e('Please, write some words','pcazorla'); ?></div>
 					<label for="comment"><?php _e('Comment','pcazorla'); ?><?php if ($req) echo '<span class="req">*</span>'; ?>:</label>					
-					<textarea name="comment" id="comment"  rows="8" tabindex="3" placeholder="<?php _e('Write here','pcazorla'); ?>"></textarea>
-					<div class="errorMessage" style="display:none;"><?php _e('Please, write some words','pcazorla'); ?></div>				
+					<textarea name="comment" id="comment"  rows="8" tabindex="3" placeholder="<?php _e('Write here','pcazorla'); ?>"></textarea>									
 				</fieldset>
 							
 				<fieldset class="submit-field">
