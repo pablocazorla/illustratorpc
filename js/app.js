@@ -20,6 +20,7 @@ var app = {
 		switch(pageid){
 			case 'work':
 				this.validateForm();
+				this.preHighlight();
 				break;
 			
 		}
@@ -141,6 +142,14 @@ var app = {
 			e.preventDefault();
 			clearFiels();
 		});
+	},
+	preHighlight : function(){
+		var $pre = $('pre').addClass('prettyprint').each(function(){
+			$(this).text($(this).html());
+		});
+		if($pre.length > 0){
+			$.getScript('//google-code-prettify.googlecode.com/svn/loader/run_prettify.js');
+		}		
 	}
 	
 };
