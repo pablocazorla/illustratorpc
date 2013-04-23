@@ -121,7 +121,7 @@ table td{
 header.main{
 	background: #FFF;
 	min-height:60px;
-	top:-60px;left:0;right:0;z-index:10001;
+	position:fixed;top:-60px;left:0;right:0;z-index:10001;
 	
 	-moz-transition:top .2s ease-out;
 	-webkit-transition:top .2s ease-out;
@@ -129,30 +129,23 @@ header.main{
 	-o-transition:top .2s ease-out;
 	transition:top .2s ease-out;
 }
+header.main.visible{	
+	top:0;	
+}
 header.main .logo{
 	float:left;
 	line-height:60px;
 }
 
-
 #menu-btn{
 	float:right;
-	display:block;background: url('img/menu-btn-bg.png') right center no-repeat;
-	width:60px;
-	height:60px;
+	display:block;
+	width:22px;
+	height:40px;
+	padding:20px 0 0 38px;
 	cursor:pointer;
 }
-
-
-/* Fixed */
-body.header-fixed{
-	padding-top:60px;
-}
-body.header-fixed header.main{
-	position:fixed;	
-	top:0;	
-}
-
+#menu-btn span{display:block;width:22px;height:4px;background:#3f90c4;margin-bottom:4px}
 /* Menu Main *******************************************************/
 menu.main{
 	position: absolute;top:60px;left:0;right:0;z-index:10001;
@@ -223,8 +216,9 @@ menu.main .arrow span{
 /* Article Main *******************************************************/
 
 article.main{
+	background: #EEE;margin-top:60px;
 }
-
+article.main.without-header{margin-top:0}
 /* Work *******************************************************/
 .summary{
 	padding: 40px 0;
@@ -235,7 +229,6 @@ article.main{
 
 
 
-#work{background: #EEE;}
 #work .content ul,#work .content ol{
 	padding-left:30px;
 	margin-bottom:30px;
@@ -293,7 +286,7 @@ color: #AAA;font-size: 20px;margin: 0 15px 0 2px;
 
 /* Portfolio *******************************************************/
 
-#portfolio{background: #EEE;padding-bottom:46px;}
+#portfolio{padding-bottom:46px;}
 
 .gallery{
 	margin-right:-2%;
@@ -458,9 +451,38 @@ footer.main{
 	padding: 25px 0;
 }
 /* HOME *****************************************/
+/*
+.home header.main{background:rgba(255,255,255,.2)}
+.home #skills{display:none}
+*/
 #home-article{
-	background:#EEE;height:1200px;
+	height:1200px;
 }
+
+
+
+/* Flexslide */
+.flexslide{list-style: none;position:relative;overflow: hidden}
+.flexslide,.flexslide > li{margin:0;padding:0;display:block;width:100%;height:auto}
+.flexslide > li{position:absolute;top:0;left:100%;z-index:10;}
+.flexslide > li:first-child{position:relative;left:0;z-index:12;}
+.flexslide > li > img{width:100% !important;height:auto !important;max-width:1000% !important;display: block}
+.flexslide > .flexslide-nav{position:absolute;z-index:20;top:50%;display:block;cursor:pointer}
+.flexslide > .flexslide-nav.flexslide-disable{cursor:default}
+.flexslide > .flexslide-nav.flexslide-prev{left:0}
+.flexslide > .flexslide-nav.flexslide-next{right:0}
+.flexslide > .flexslide-pag{display: block;position:absolute;z-index:21;margin:0;padding:0;bottom:0;left:0;right:0;text-align:center;}
+.flexslide > .flexslide-pag li{display: inline-block;cursor:pointer}
+.flexslide > .flexslide-pag li.flexslide-active{cursor:default}
+
+.home-slide-content{position:relative}
+.home-title{
+	position:absolute;z-index:100;background:rgba(0,0,0,.5);color:#FFF;text-align:center;left:0;right:0;top:45%;bottom:0;padding:50px 30px;
+}
+.home-title h1{
+	color:#FFF
+}
+
 /* Media queries ************************************/
 @media only screen and (max-width:700px){
 	#skills{display:none;}

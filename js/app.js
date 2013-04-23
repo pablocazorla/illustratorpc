@@ -27,17 +27,18 @@ var app = {
 	},	
 	headerMov : function(){
 		var self = this,
+			$header = $('header.main'),
 			prev = this.$window.scrollTop(),
 			current = 0,
-			fixed = false;
+			fixed = true;
 		this.$window.scroll(function(){
 			current = self.$window.scrollTop();
 			//console.log(current);
 			if(!fixed && current < prev){
-				self.$body.addClass('header-fixed');
+				$header.addClass('visible');
 				fixed = true;
 			}else if(fixed && current > prev){
-				self.$body.removeClass('header-fixed');
+				$header.removeClass('visible');
 				fixed = false;
 			}
 			prev = current;

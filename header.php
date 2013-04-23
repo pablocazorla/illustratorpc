@@ -24,12 +24,13 @@
 	<?php wp_head(); ?>	
 </head>
 
-<?php if(!is_home() && !is_front_page()){ ?>
-
+<?php if(is_home() && is_front_page()){ ?>
+	<body class="home">
 <?php }else{ ?>
+	<body>
 <?php }; ?>
 <body>
-<header class="main">
+<header class="main visible">
 	<div class="wrap clearfix">
 		<a href="<?php bloginfo( 'url' ); ?>" class="logo"><?php bloginfo( 'name' ); ?><span><?php $site_description = get_bloginfo( 'description', 'display' );echo $site_description;?></span></a>
 		<ul id="skills">
@@ -37,7 +38,9 @@
 			<li class="sk2">Concept artist</li>
 			<li class="sk3">Painter</li>
 		</ul>
-		<span id="menu-btn"></span>		
+		<span id="menu-btn">
+			<span></span><span></span><span></span>
+		</span>		
 	</div>
 	<menu class="main" id="menu-main">
 		<div class="wrap clearfix">
