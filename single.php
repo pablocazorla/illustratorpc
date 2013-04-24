@@ -1,14 +1,15 @@
 <?php get_header(); ?>
 <script type="text/javascript">pageid = 'work';</script>
 <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-	<nav class="breadcrumbs">
-		<div class="wrap">
-			<a rel="category tag" title="View all posts in Portfolio" href="<?php bloginfo('url'); ?>/portfolio">Portfolio</a>
-			<span class="separator"></span>
-			<?php the_category(', '); ?>
-		</div>
-	</nav>
+	
 	<article id="work" class="main">
+		<nav class="breadcrumbs">
+			<div class="wrap">
+				<a rel="category tag" title="View all posts in Portfolio" href="<?php bloginfo('url'); ?>/portfolio">Portfolio</a>
+				<span class="separator"></span>
+				<?php the_category(', '); ?>
+			</div>
+		</nav>
 		<section class="summary wrap clearfix">			
 			<h1><?php the_title(); ?></h1>			
 			<?php the_excerpt(); ?>			

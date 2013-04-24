@@ -3,6 +3,7 @@
 var app = {
 	$window : null,
 	$body : null,
+	$menu : null,
 	init : function(){
 		console.log('Start app');
 		console.log('---------');
@@ -10,6 +11,7 @@ var app = {
 		//Setup
 		this.$window = $(window);
 		this.$body = $('body');
+		this.$menu = $('#menu-main');
 		
 		//Common
 		this.headerMov();
@@ -63,22 +65,22 @@ var app = {
 		setInterval(change,duration);
 	},
 	menuMov : function(){
-		var open = false,
-			moving = false,
-			$menu = $('#menu-main'),
+		var self = this,
+			open = false,
+			moving = false,			
 			duration = 200,
 			openMenu = function(){
 				if(!open && !moving){
 					moving = true;
 					open = true;
-					$menu.slideDown(duration,function(){moving = false;});
+					self.$menu.slideDown(duration,function(){moving = false;});
 				}
 			},
 			closeMenu = function(){
 				if(open && !moving){
 					moving = true;
 					open = false;
-					$menu.slideUp(duration,function(){moving = false;});
+					self.$menu.slideUp(duration,function(){moving = false;});
 				}
 			};		
 		
@@ -87,7 +89,10 @@ var app = {
 		});
 		$('document,body').mouseup(function(){
 			closeMenu();
-		});	
+		});
+		this.$window.scroll(function(){
+			closeMenu();
+		});
 		//For IOS devices
 		if(typeof document.body.addEventListener != undefined){
 			document.body.addEventListener("touchend", closeMenu,false);

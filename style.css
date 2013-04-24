@@ -26,7 +26,7 @@ body{
 	color:#333;
 }
 
-h1,h2,h3,h4,h5,h6,.logo,.navPages{
+h1,h2,h3,h4,h5,h6,.logo,.navPages,.home-link{
 	font-family: Arial, Helvetica, sans-serif;
 	font-weight: 700;
     letter-spacing: -0.04em;
@@ -92,6 +92,10 @@ table th{
 }
 table td{
 	padding:12px 18px;
+}
+
+.align-center{
+	text-align:center;
 }
 /* Logo *******************************************************/
 .logo{
@@ -451,37 +455,36 @@ footer.main{
 	padding: 25px 0;
 }
 /* HOME *****************************************/
-/*
-.home header.main{background:rgba(255,255,255,.2)}
-.home #skills{display:none}
-*/
-#home-article{
-	height:1200px;
+#home-article {
+    padding-bottom: 46px;
+}
+.home-presentation{
+	background:#d3d3d3;position:relative;
+}
+.home-presentation .portrait{
+	position:relative;width:50%;height: auto;top:0;left:50%;display: block;
+}
+.home-presentation .title{
+	position:absolute;width:50%;top:50%;left:0;text-align:right;margin-top: -215px;
+}
+.home-presentation .title h1{
+	padding:0 70px 0 0;
+	font-size:90px;color:#FFF;line-height: 110px;text-shadow:0 1px 4px rgba(0,0,0,.15);
+}
+.home-presentation .home-link{
+	display:block;position:absolute;z-index:100;top:50%;left:50%;margin:-48px 0 0 -48px;
+	width:96px;height:96px;line-height:96px;border-radius:50px;
+	color:#FFF;background:#3f90c4;font-size: 16px;text-align:center;
+}
+.home-presentation .home-link:hover{text-decoration:none}
+
+#home-article .content{
+	padding-top:30px;
+}
+#home-article .content h2{
+	border-bottom: solid 1px #CCC;margin-bottom:25px;
 }
 
-
-
-/* Flexslide */
-.flexslide{list-style: none;position:relative;overflow: hidden}
-.flexslide,.flexslide > li{margin:0;padding:0;display:block;width:100%;height:auto}
-.flexslide > li{position:absolute;top:0;left:100%;z-index:10;}
-.flexslide > li:first-child{position:relative;left:0;z-index:12;}
-.flexslide > li > img{width:100% !important;height:auto !important;max-width:1000% !important;display: block}
-.flexslide > .flexslide-nav{position:absolute;z-index:20;top:50%;display:block;cursor:pointer}
-.flexslide > .flexslide-nav.flexslide-disable{cursor:default}
-.flexslide > .flexslide-nav.flexslide-prev{left:0}
-.flexslide > .flexslide-nav.flexslide-next{right:0}
-.flexslide > .flexslide-pag{display: block;position:absolute;z-index:21;margin:0;padding:0;bottom:0;left:0;right:0;text-align:center;}
-.flexslide > .flexslide-pag li{display: inline-block;cursor:pointer}
-.flexslide > .flexslide-pag li.flexslide-active{cursor:default}
-
-.home-slide-content{position:relative}
-.home-title{
-	position:absolute;z-index:100;background:rgba(0,0,0,.5);color:#FFF;text-align:center;left:0;right:0;top:45%;bottom:0;padding:50px 30px;
-}
-.home-title h1{
-	color:#FFF
-}
 
 /* Media queries ************************************/
 @media only screen and (max-width:700px){

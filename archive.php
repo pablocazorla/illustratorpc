@@ -1,14 +1,15 @@
 <?php get_header(); ?>
 <script type="text/javascript">pageid = 'portfolio';</script>
 <?php $cat_name = single_cat_title('',false);?>
-<nav class="breadcrumbs">
+
+<article id="portfolio" class="main">
+	<nav class="breadcrumbs">
 		<div class="wrap">
 			<a rel="category tag" title="View all posts in Portfolio" href="<?php bloginfo('url'); ?>/portfolio">Portfolio</a>
 			<span class="separator"></span>
 			<?php echo $cat_name; ?>
 		</div>
 	</nav>
-<article id="portfolio" class="main">	
 	<section class="summary wrap clearfix">		
 		<h1><?php echo $cat_name; ?></h1>
 		<?php echo category_description(); ?> 
