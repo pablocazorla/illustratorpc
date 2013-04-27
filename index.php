@@ -10,7 +10,7 @@
 		<img class="portrait" src="<?php bloginfo('template_url'); ?>/img/home.jpg"/>
 	</div>
 	<section class="content wrap">
-		<h2>Last works</h2>
+		<h2 class="last-work">Last work</h2>
 		<div class="gallery clearfix">
 			<?php query_posts('posts_per_page=3'); while ( have_posts() ) : the_post(); ?>	    
 			<figure>			

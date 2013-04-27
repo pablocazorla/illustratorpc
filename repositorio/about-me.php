@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: About me
+Template Name: XXXAbout me
 */
 ?>
 <?php get_header(); ?>

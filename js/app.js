@@ -5,9 +5,6 @@ var app = {
 	$body : null,
 	$menu : null,
 	init : function(){
-		console.log('Start app');
-		console.log('---------');
-		
 		//Setup
 		this.$window = $(window);
 		this.$body = $('body');
@@ -94,12 +91,30 @@ var app = {
 			closeMenu();
 		});
 		//For IOS devices
-		if(typeof document.body.addEventListener != undefined){
+		if(window.addEventListener){
 			document.body.addEventListener("touchend", closeMenu,false);
 		}
 	},
 	scrollMov : function(){
-		
+		var $b = $('html, body'),
+			timeScale = 2;
+		$('a').each(function(){
+			var href = $(this).attr('href') || '';
+			if(href.indexOf('#')!=-1){
+				var id = '#'+href.split('#')[1].split('?')[0];
+				if(id != ''){
+					var $anchor = $(id);
+					if($anchor.length > 0){
+						$(this).click(function(){
+							var posY = Math.round($anchor.offset().top);							
+							var duration = Math.abs(posY - $b.scrollTop())/timeScale;
+							$b.animate({'scrollTop':posY+'px'},duration);
+						});
+					}
+				}
+			}
+			
+		});
 	},
 	validateForm : function(){
 		var $f = $('fieldset.validate'),
@@ -156,7 +171,6 @@ var app = {
 		if($pre.length > 0){
 			$.getScript('//google-code-prettify.googlecode.com/svn/loader/run_prettify.js');
 		}		
-	}
-	
+	}	
 };
 $('document').ready(app.init());
